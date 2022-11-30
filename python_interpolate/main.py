@@ -23,6 +23,8 @@ for image in vid.iter_data():
     i= True
     old_frame = image
 
+print(np.shape(image))
+
 w.append_data(image)
 w.close()
 
