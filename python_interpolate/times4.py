@@ -2,10 +2,10 @@ import imageio
 import imageio.v2 as iio
 import numpy as np
 
-vid = imageio.get_reader(r'videos\ezgif-3-ecec09a53f.mp4','ffmpeg')
+vid = imageio.get_reader(r'videos\horse12.mp4','ffmpeg')
 fps = vid.get_meta_data()['fps']
 height,width = vid.get_meta_data()['size']
-w = iio.get_writer(r'videos\my_videox4.mp4', format='FFMPEG', mode='I', fps=int(fps*4))
+w = iio.get_writer(r'videos\horse_x4.mp4', format='FFMPEG', mode='I', fps=int(fps*4))
 
 
 frames = []

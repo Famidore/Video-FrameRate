@@ -2,10 +2,10 @@ import imageio
 import imageio.v2 as iio
 import numpy as np
 
-vid = imageio.get_reader(r'Video-FrameRate\python_interpolate\videos\ezgif-3-ecec09a53f.mp4','ffmpeg')
+vid = imageio.get_reader(r'videos\vid.mp4','ffmpeg')
 fps = vid.get_meta_data()['fps']
 height,width = vid.get_meta_data()['size']
-w = iio.get_writer(r'Video-FrameRate\python_interpolate\videos\my_video.mp4', format='FFMPEG', mode='I', fps=int(fps*2))
+w = iio.get_writer(r'videos\vid_output2.mp4', format='FFMPEG', mode='I', fps=int(fps*2))
 
 
 frames = []
