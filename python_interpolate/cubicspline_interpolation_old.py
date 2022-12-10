@@ -23,7 +23,7 @@ def o_kurwa(data,shape): #interpolacja każdego piksela
                 f = CubicSpline(timestamp,pixel_frame_color)
                 for i in range(len(more_fps_data)):
                     more_fps_data[i][y][x][z] = f(i)
-        print(y)
+        print((y/shape[0])*100,'%')
     
     return more_fps_data
 
