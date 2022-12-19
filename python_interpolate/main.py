@@ -3,12 +3,11 @@ import imageio.v2 as iio
 import numpy as np
 from scipy.interpolate import CubicSpline
 
-<<<<<<< HEAD
 vid = imageio.get_reader(r'videos\vid.mp4','ffmpeg')
 fps = vid.get_meta_data()['fps']
 height,width = vid.get_meta_data()['size']
 w = iio.get_writer(r'videos\vid_output2.mp4', format='FFMPEG', mode='I', fps=int(fps*2))
-=======
+
 class Framerate_upscale:
     """class using some techniques to increase framerate on video, 
         idk what i supposed to write more, so...
@@ -26,7 +25,6 @@ class Framerate_upscale:
         # metadata
         self.fps = self.vid.get_meta_data()['fps']
         self.height,self.width = self.vid.get_meta_data()['size']
->>>>>>> dfe590d7f38892b52050826d9cd9c3fb679cc68c
 
 
     def mean_upscaling(self, upscaled_dir:str) -> None:
