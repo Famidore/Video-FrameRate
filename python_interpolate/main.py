@@ -3,10 +3,10 @@ import imageio.v2 as iio
 import numpy as np
 from scipy.interpolate import CubicSpline
 
-vid = imageio.get_reader(r'videos\vid.mp4','ffmpeg')
-fps = vid.get_meta_data()['fps']
-height,width = vid.get_meta_data()['size']
-w = iio.get_writer(r'videos\vid_output2.mp4', format='FFMPEG', mode='I', fps=int(fps*2))
+# vid = imageio.get_reader(r'videos\vid.mp4','ffmpeg')
+# fps = vid.get_meta_data()['fps']
+# height,width = vid.get_meta_data()['size']
+# w = iio.get_writer(r'videos\vid_output2.mp4', format='FFMPEG', mode='I', fps=int(fps*2))
 
 class Framerate_upscale:
     """class using some techniques to increase framerate on video, 
@@ -80,7 +80,7 @@ class Framerate_upscale:
                     f = CubicSpline(timestamp,pixel_frame_color)
                     for i in range(len(more_fps_data)):
                         more_fps_data[i][y][x][z] = f(i)
-            print((y/self.width)*100,'%')
+            # print((y/self.width)*100,'%')
 
 
         for frame in more_fps_data:
