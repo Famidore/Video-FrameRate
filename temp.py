@@ -9,7 +9,7 @@ f = file_paths
 
 
 Upscaler = Framerate_upscale(f)
-Upscaler.mean_upscaling('upscaled.mp4')
+Upscaler.mean_quadruple_upscaling('upscaled.mp4')
 
 clip1 = VideoFileClip(f)
 clip2 = VideoFileClip('upscaled.mp4').margin(10)
