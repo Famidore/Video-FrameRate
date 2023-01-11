@@ -54,6 +54,7 @@ class Framerate_upscale:
             old_frame = image
 
         new_file.append_data(image)
+        new_file.append_data(image)
         new_file.close()
 
     def cubic_interp_upscaling(self, upscaled_dir: str) -> None:
@@ -90,7 +91,7 @@ class Framerate_upscale:
             new_file.append_data(frame)
 
     def mean_quadruple_upscaling(self, upscaled_dir: str) -> None:
-        """upscaling by making four frames between two original
+        """upscaling by making frames between two original
 
         Attributes:
             upscaled_dir (str): direcory of upscaled video, must have: .mp4 at the end
@@ -122,9 +123,13 @@ class Framerate_upscale:
                 frame_between3 = frame_between3.mean(axis=3)
                 new_file.append_data(frame_between3)
 
+                
+
             i = True
             old_frame = image
-
+        new_file.append_data(image)
+        new_file.append_data(image)
+        new_file.append_data(image)
         new_file.append_data(image)
         new_file.close()
 

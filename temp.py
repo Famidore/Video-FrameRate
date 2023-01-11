@@ -7,14 +7,28 @@ import sys, os
 file_paths = sys.argv[1]
 f = file_paths
 
-
 Upscaler = Framerate_upscale(f)
-Upscaler.mean_quadruple_upscaling('upscaled.mp4')
+methode = None
+while not methode:
+    methode = input('\n\t1 - mean upscale\n\t2 - quadruple upscale\n\t3 - cubic interpolation upscaling\n\t... ')
+    
+    if methode == '1':
+        Upscaler.mean_upscaling('upscaled.mp4')
+    elif methode == '2':
+        Upscaler.mean_quadruple_upscaling('upscaled.mp4')
+    elif methode == '3':
+        Upscaler.cubic_interp_upscaling('upscaled.mp4')
+    else:
+        print('\nSelect a valid methode\n')
+        methode = None
+
 
 clip1 = VideoFileClip(f)
-clip2 = VideoFileClip('upscaled.mp4').margin(10)
+clip2 = VideoFileClip('upscaled.mp4')
 final_clip = clips_array([[clip1, clip2]])
 final_clip.resize(width=480).write_videofile("final.mp4")
+
+print('\nPress "q" to close the window\n')
 
 cap = cv2.VideoCapture('final.mp4')
 while(cap.isOpened()):
@@ -34,5 +48,8 @@ while(cap.isOpened()):
 cap.release()
 cv2.destroyAllWindows()
 
+ans = input('\n\tDo you want to save the results?\n\tY/N\t... ')
+
+if ans != 'Y':
+    os.remove("final.mp4")
 os.remove('upscaled.mp4')
-# os.remove("final.mp4")
